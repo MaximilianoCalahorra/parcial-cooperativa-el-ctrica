@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="datos.Persona" table="persona">
+	    <id column="idPersona" name="idPersona">
+	      <generator class="identity"/>
+	    </id>
+	    <property column="nombre" name="nombre" type="string"/>
+	    <property column="apellido" name="apellido" type="string"/>
+	    <property column="dni" name="dni" type="int"/>
+	    <joined-subclass name="datos.Cliente" table="cliente">
+			<key column="idCliente"/>
+			<property column="nroCliente" name="nroCliente" type="string"/>
+		</joined-subclass>
+		<joined-subclass name="datos.Inspector" table="inspector">
+			<key column="idInspector"/>
+			<property column="zona" name="zona" type="string"/>
+		</joined-subclass>
+	</class>    
+</hibernate-mapping>
